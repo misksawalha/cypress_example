@@ -1,0 +1,20 @@
+
+// // import 'cypress';
+
+// describe('login',() => {
+//   beforeEach(function(){
+//     cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//   })
+//   it('valid login',() => {
+//     cy.get('[placeholder="Username"]').type("Admin")
+//     cy.get('[placeholder="Password"]').type("admin123")
+//     cy.get('button').click()
+//     //cy.get('.oxd-input').eq(2).click().type("Admin")
+//      });
+//      it('valid login2',() => {
+//       cy.get('[placeholder="Username"]').type("Admin")
+//       cy.get('[placeholder="Password"]').type("admin123")
+//       cy.get('button').click()
+//       //cy.get('.oxd-input').eq(2).click().type("Admin")
+//        });
+// });
