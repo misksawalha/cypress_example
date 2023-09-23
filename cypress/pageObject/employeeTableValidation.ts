@@ -1,4 +1,11 @@
 import keyVal from "../support/interface";
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth() + 1; // Months are 0-indexed, so add 1
+const day = date.getDate();
+const formattedDate = `${year}-${month}-${day}`;
+
+
 export default class employeeTableValidation {
     // selectors
     elements = {
@@ -70,7 +77,7 @@ export default class employeeTableValidation {
         this.elements.text().should('contain', `${firstName} ${LastName}`)
     }
     fillPersonalDetails() {
-        this.elements.datePicker().click().clear().type('2023-09-20')
+        this.elements.datePicker().click().clear().type(formattedDate)
         this.elements.closeBtn().click()
         this.elements.smokeCheckBox().click({ force: true })
     }
