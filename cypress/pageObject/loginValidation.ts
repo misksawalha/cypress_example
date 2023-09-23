@@ -8,6 +8,8 @@ class LoginValidation {
         dashBoard: () => cy.get('.oxd-topbar-header-breadcrumb > .oxd-text'),
         errorMessage: () => cy.get('.oxd-alert'),
         emptyAlert: () => cy.get('.orangehrm-login-slot'),
+        emptyUserName: () => cy.get('.oxd-input-group > .oxd-text').parent().should('contain', 'username'),
+        emptyPassword: () => cy.get('.oxd-input-group > .oxd-text'),
     }
 
     fillData(name: string, password: string) {
@@ -35,7 +37,7 @@ class LoginValidation {
         else if (message == "Invalid credentials") {
             this.elements.errorMessage().should('contain', message)
         }
-        else {
+        else if(message == 'Required'){
             this.elements.emptyAlert().should('contain', message)
         }
     }

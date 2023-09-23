@@ -4,7 +4,6 @@ import keyVal from "../support/interface";
 class addEmployee
 {
     elements={
-    
         MainMenuItems: () => cy.get('.oxd-sidepanel-body'),
         AddEmp: () => cy.get('.oxd-button--secondary'),
         EmployeeInputName: () => cy.get('.--name-grouped-field'),
