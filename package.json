@@ -1,8 +1,10 @@
 {
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.0",
     "@types/cypress": "^1.1.3",
     "@types/jest": "^29.5.4",
-    "cypress": "^13.2.0",
+    "allure-commandline": "^2.24.0",
+    "cypress": "12.14.0",
     "typescript": "^5.2.2"
   },
   "name": "gsg",
@@ -51,6 +53,7 @@
     "concat-map": "^0.0.1",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.3",
+    "cypress-plugin-api": "^2.11.1",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.9",
     "debug": "^4.3.4",
@@ -194,7 +197,15 @@
     "yauzl": "^2.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gazaSkyGeeks": "npx cypress run --browser chrome --spec cypress/e2e/orangeHRM/login_hr.spec.cy.ts --env allure=true;npm run allure:report",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:clear": "npm run clear:allure && npm run clear:cypress",
+    "clear:allure": "rimraf allure-results allure-results-aggregated-files allure-report",
+    "clear:cypress": "rimraf cypress/screenshots cypress/videos",
+    "cypress": "npm run allure:clear && npx cypress run --browser chrome --spec cypress/e2e/orangeHRM/login_hr.spec.cy.ts --env allure=true && npm run allure:report",
+    "ul-regression-allure": "npx cypress run --browser chrome --spec cypress/e2e/orangeHRM/login_hr.spec.cy.ts --env allure=true && npm run allure:report",
+    "final": "npx cypress run --browser chrome --spec cypress/e2e/orangeHRM/login_hr.spec.cy.ts --env allure=true && npm run allure:report"
   },
   "keywords": [],
   "author": "",
