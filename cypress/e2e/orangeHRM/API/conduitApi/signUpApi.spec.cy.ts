@@ -1,7 +1,9 @@
 import addUser from "../../../../support/helper/signupHelper"
-describe('Signup logic',()=>{
+describe('Signup logic',{tags:'@test'},()=>{
         it('signup: user should be able to create new user',()=>{
-            addUser.addNewUserViaApi()
+            addUser.addNewUserViaApi().then((resolve)=>{
+              cy.log(`${resolve}`)
+            })
         })
 })
 

@@ -7,7 +7,7 @@ module.exports = defineConfig({
     // baseUrl: "https://opensource-demo.orangehrmlive.com/web/index.php",
     baseUrl: "https://conduit.productionready.io",
     setupNodeEvents(on, config) {
-      allureWriter(on, config);
+      require('@cypress/grep/src/plugin')(config);
       return config;
     },
     env: {
