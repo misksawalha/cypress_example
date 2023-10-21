@@ -25,11 +25,20 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 declare namespace Cypress{
+    
     interface Chainable<Subject>{
-        getByPlaceholder: typeof getByPlaceholder
+        getByPlaceholder: typeof getByPlaceholder,
+        logout :typeof logout
     }
 }
 function getByPlaceholder(placeholder: string){
      return cy.get(`[placeholder=${placeholder}]`)
 }
+function logout() { 
+    //logout 
+    cy.get('.oxd-userdropdown-tab').click({ force: true }); 
+    return cy.get('.oxd-dropdown-menu').contains('Logout').click({ force: true }); 
+} 
+
+Cypress.Commands.add('logout', logout)
 Cypress.Commands.add('getByPlaceholder',getByPlaceholder)

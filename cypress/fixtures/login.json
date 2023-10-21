@@ -23,5 +23,9 @@
       "name": "Admin",
       "password": "",
       "message": "Required"
+   },
+   "user":{
+      "firstName": "misk"
+     
    }
 }
