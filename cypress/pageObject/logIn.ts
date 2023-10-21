@@ -11,20 +11,20 @@ class LoginValidation {
  
     fillData(name: string, password: string) { 
         if (name == "" && password == "") { 
-            this.elements.loginBtn().click() 
+            this.elements.loginBtn().click({force:true}) 
         } 
         else if (name == "") { 
             this.elements.password().type(password) 
-            this.elements.loginBtn().click() 
+            this.elements.loginBtn().click({force:true}) 
         } 
         else if (password == "") { 
             this.elements.userName().type(name) 
-            this.elements.loginBtn().click() 
+            this.elements.loginBtn().click({force:true}) 
         } 
         else { 
             this.elements.userName().type(name) 
             this.elements.password().type(password) 
-            this.elements.loginBtn().click() 
+            this.elements.loginBtn().click({force:true}) 
         } 
     } 
     checkPage(message: string) { 

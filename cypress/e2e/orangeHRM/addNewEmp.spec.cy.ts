@@ -1,7 +1,10 @@
-import LoginValidation from "../../pageObject/loginValidation"; 
+import LoginValidation from "../../pageObject/logIn"; 
+import addNewEmp from "../../pageObject/addNewEmp";
 const loginObjValidation: LoginValidation = new LoginValidation(); 
+let addNewEmpObject:addNewEmp=new addNewEmp()
 import PIM from "../../pageObject/pimPage" 
 const pimObject: PIM = new PIM(); 
+let userName:string = "misk" + Math.floor(Math.random() * 1000).toString();
 describe("Login Home Page", () => { 
     beforeEach(function () { 
         cy.fixture('login').as('data') 
@@ -17,13 +20,12 @@ describe("Login Home Page", () => {
     it("Add new Employee via API", () => { 
          
         cy.get('@data').then((infoData: any) => { 
-            let firstName=infoData.user.firstName+Math.floor((Math.random()*1000)); 
-            pimObject.addNewEmployee(firstName, infoData.user.middleName, infoData.user.lastName, infoData.user.id,infoData.user.password).then(() => { 
-                loginObjValidation.fillData(firstName, infoData.user.password) 
-            }) 
- 
+            let firstName=infoData.user.firstName
+            pimObject.addNewEmployee(firstName, "naser", "sawallha",userName,"mesho2000")
+
         }); 
- 
+        addNewEmpObject.logoutFunction()
+        loginObjValidation.fillData(userName,"mesho2000")
     }) 
  
 })
