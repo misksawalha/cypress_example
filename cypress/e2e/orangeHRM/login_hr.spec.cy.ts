@@ -2,7 +2,7 @@ import LoginValidation from "../../pageObject/loginValidation";
 const loginObjValidation : LoginValidation = new LoginValidation();
 describe("Login Home Page", () => {
     beforeEach(function (){
-        cy.visit("/web/index.php/auth/login");
+        cy.visit("/auth/login");
         cy.fixture('login').as('data')
     })
 
